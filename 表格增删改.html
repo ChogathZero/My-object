@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Fly">
+    <title>Title</title>
+    <style>
+        *{ margin: 0; padding: 0; font-family:Microsoft yahei,serif;}
+        li{ list-style:none;}
+        #title{
+            width: 1000px;
+            height: 40px;
+            margin: 50px auto 0;
+            background: #544959;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 40px;
+            display: flex;
+            color: #fff;
+        }
+        #title li{
+            border: 1px solid #eaeaea;
+            float: left;
+        }
+        #title li:nth-of-type(1){
+            width: 8%;
+        }
+        #title li:nth-of-type(2){
+            width: 24%;
+            flex-grow:1;
+        }
+        #title li:nth-of-type(3){
+            width: 14%;
+        }
+        #title li:nth-of-type(4){
+            width: 22%;
+        }
+        #title li:nth-of-type(5){
+            width: 10%;
+        }
+        #title li:nth-of-type(6){
+            width: 10%;
+        }
+        #title li:nth-of-type(7){
+            width: 10%;
+        }
+        #table li{
+            margin: 0 auto;
+            display: flex;
+            width: 1000px;
+            height: 35px;
+            font-size: 14px;
+            text-align: center;
+            line-height: 35px;
+        }
+        #table li span{
+            border: 1px solid #eaeaea;
+        }
+        #table li span:nth-of-type(1){
+            width: 8%;
+        }
+        #table li span:nth-of-type(2){
+            width: 24%;
+            flex-grow:1;
+        }
+        #table li span:nth-of-type(3){
+            width: 14%;
+        }
+        #table li span:nth-of-type(4){
+            width: 22%;
+        }
+        #table li span:nth-of-type(5){
+            width: 10%;
+        }
+        #table li span:nth-of-type(6){
+            width: 10%;
+            cursor: pointer;
+        }
+        #table li span:nth-of-type(6):hover,#table li span:nth-of-type(7):hover{
+            color: red;
+        }
+        #table li span:nth-of-type(7){
+            width: 10%;
+            cursor: pointer;
+        }
+        #change{
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(255,255,255,.8);
+            width: 100%;
+            height: 100%;
+        }
+        #change ul{
+            width: 400px;
+            height: 300px;
+            background: #fff;
+            margin: 300px auto;
+        }
+        #change ul li{
+            width: 80%;
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 20px auto;
+        }
+        #change ul li input{
+            height: 30px;
+            line-height: 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 200px;
+            text-indent: 20px;
+            float: right;
+        }
+        #change ul .btn{
+            width: 80%;
+        }
+        #change ul .btn input{
+            text-indent: 0;
+            width: 70px;
+            height: 30px;
+        }
+        .btn{
+            width: 950px;
+            height: 30px;
+            margin: 20px auto;
+        }
+        .btn input{
+            width: 50px;
+            height: 30px;
+            float: right;
+            font-size: 16px;
+            background: #ccc;
+            font-weight: bold;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<ul id="title">
+    <li>ID</li>
+    <li>歌名</li>
+    <li>歌手</li>
+    <li>专辑名称</li>
+    <li>金额</li>
+    <li>删除</li>
+    <li>修改</li>
+</ul>
+<ul id="table">
+    <!--<li>-->
+        <!--<span>1</span><span>I love you</span><span>aaa</span><span>aaaa</span><span>23</span><span>删除</span><span>修改</span>-->
+    <!--</li>-->
+</ul>
+<div class="btn"><input type="button" value="添加"></div>
+<div id="Tc">
+
+</div>
+<!--<div id="change">-->
+<!--<ul>-->
+    <!--<li>ID:<input type="text" value="1" disabled="true"></li>-->
+    <!--<li>歌名：<input type="text" value=""></li>-->
+    <!--<li>歌手：<input type="text" value=""></li>-->
+    <!--<li>专辑名称：<input type="text" value=""></li>-->
+    <!--<li>金额：<input type="text" value=""></li>-->
+    <!--<li class="btn">-->
+        <!--<input type="button" value="取消">-->
+        <!--<input type="button" value="确定">-->
+    <!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+    <script>
+        var date = [
+            {"id":"1", "歌名":"你还要我怎样", "歌手":"薛之谦", "专辑名称":"《意外》", "金额":"58", "删除":"删除", "修改":"修改"},
+            {"id":"2", "歌名":"I was here", "歌手":"Beyoncé", "专辑名称":"《4》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"3", "歌名":"I Love You", "歌手":"Stewart Mac", "专辑名称":"《我爱你》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"4", "歌名":"南山南", "歌手":"马頔", "专辑名称":"《孤岛》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"5", "歌名":"B What U Wanna B", "歌手":"Darin", "专辑名称":"《Darin》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"6", "歌名":"Applause", "歌手":"lady gaga", "专辑名称":"《Applause》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"7", "歌名":"唯一", "歌手":"王力宏", "专辑名称":"《唯一》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"8", "歌名":"I Really Like You", "歌手":"Carly Rae Jepsen", "专辑名称":"《I Really Like You》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"9", "歌名":"Look at me now", "歌手":"Charlie puth", "专辑名称":"《Ego》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"10", "歌名":"雨碎江南·客缘", "歌手":"枫影儿、W.K.", "专辑名称":"《雨碎江南·客缘》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"11", "歌名":"Kiss me", "歌手":"Charlie puth", "专辑名称":"《Ego》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"12", "歌名":"Without You", "歌手":"Alyssa Reid", "专辑名称":"《The Game》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"13", "歌名":"If I Were A Boy", "歌手":"Beyonce", "专辑名称":"《If I Were A Boy》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"14", "歌名":"Pretty Boy", "歌手":"M2M", "专辑名称":"《Shades of purple》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"15", "歌名":"远离伤心", "歌手":"王力宏", "专辑名称":"《好想你》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"16", "歌名":"Heartbeats", "歌手":"Amy Diamond", "专辑名称":"《Swings And Roundabouts》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"17", "歌名":"We Don't Talk Anymore", "歌手":"Charlie puth", "专辑名称":"《Nine Track Mind》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"18", "歌名":"春雨里洗过的太阳", "歌手":"王力宏", "专辑名称":"《心跳》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"19", "歌名":"Me And My Broken Heart", "歌手":"Rixton", "专辑名称":"《Me And My Broken Heart》", "金额":"37", "删除":"删除", "修改":"修改"},
+            {"id":"20", "歌名":"I Am You", "歌手":"Kim Taylor", "专辑名称":"《I Am You》", "金额":"37", "删除":"删除", "修改":"修改"}
+        ];
+        var aUl = document.getElementById("table"),
+            aTc = document.getElementById("Tc"),
+            add = document.querySelector(".btn input"),
+            index = date.length;
+        for (var i = 0; i < date.length; i++) {
+                var obj = document.createElement("li");
+                if (i%2){
+                    obj.style.background = "#81FCFF";
+                }
+                obj.innerHTML += "<span>"+date[i]["id"]+"</span><span>"+date[i]["歌名"]+"</span><span>"+date[i]["歌手"]+"</span><span>"+date[i]["专辑名称"]+"</span><span>"+date[i]["金额"]+"</span><span>删除</span><span>修改</span>";
+            aUl.appendChild(obj);
+        }
+        aUl.onclick =function (e) {
+            e = e || window.event;
+            if (e.target.innerHTML == "删除"){ //删除
+                if (confirm("确定删除吗？")){
+                    e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+                }
+                var aLi = aUl.querySelectorAll("li");
+                for ( k = 0; k < aLi.length; k++) {
+                    if (k%2){
+                        aLi[k].style.background = "#81FCFF";
+                    }else {
+                        aLi[k].style.background = "";
+                    }
+                }
+            }else if (e.target.innerHTML == "修改"){ //修改
+                arr = e.target.parentNode.innerHTML.replace(/<span>/g,",").replace(/<\/span>/g,",").replace(/,+/g, ",").split(",");
+                var obj = document.createElement("div");
+                obj.id = "change";
+                obj.innerHTML = '<ul><li>ID:<input type="text" value="'+arr[1]+'" disabled="true"></li> <li>歌名：<input type="text" value="'+arr[2]+'"></li> <li>歌手：<input type="text" value="'+arr[3]+'"></li><li>专辑名称：<input type="text" value="'+arr[4]+'"></li> <li>金额：<input type="text" value="'+arr[5]+'"></li> <li class="btn"> <input type="button" value="取消" class="change"> <input type="button" value="确定" class="change"></li></ul>';
+                aTc.appendChild(obj);
+                var aBtn = document.getElementsByClassName("change"),
+                    oInp = document.querySelectorAll("#change ul li input");
+                for (var i = 0; i < aBtn.length; i++) {
+                    aBtn[i].i = i;
+                    aBtn[i].onclick = function () {
+                        if (this.i == 0){
+                            aTc.removeChild(obj);
+                        }else {
+                            if (oInp[0].value&&oInp[1].value&&oInp[2].value&&oInp[3].value&&oInp[4].value){
+                                e.target.parentNode.innerHTML = "<span>"+oInp[0].value+"</span><span>"+oInp[1].value+"</span><span>"+oInp[2].value+"</span><span>"+oInp[3].value+"</span><span>"+oInp[4].value+"</span><span>删除</span><span>修改</span>";
+                                aTc.removeChild(obj);
+                            }else {
+                                alert("内容不能为空");
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        add.onclick = function () {//增加
+            var obj = document.createElement("div");
+            obj.id = "change";
+            index++;
+            obj.innerHTML = '<ul><li>ID:<input type="text" value="'+index+'" disabled="true"></li> <li>歌名：<input type="text" value=""></li> <li>歌手：<input type="text" value=""></li><li>专辑名称：<input type="text" value=""></li> <li>金额：<input type="text" value=""></li> <li class="btn"> <input type="button" value="取消" class="change"> <input type="button" value="确定" class="change"></li></ul>';
+            aTc.appendChild(obj);
+            var aBtn = document.getElementsByClassName("change"),
+                oInp = document.querySelectorAll("#change ul li input");
+            for (var i = 0; i < aBtn.length; i++) {
+                aBtn[i].i = i;
+                aBtn[i].onclick = function () {
+                    if (this.i == 0){
+                        aTc.removeChild(obj);
+                        index--;
+                    }else {
+                        if (oInp[0].value&&oInp[1].value&&oInp[2].value&&oInp[3].value&&oInp[4].value){
+                            aUl.innerHTML += "<li><span>"+oInp[0].value+"</span><span>"+oInp[1].value+"</span><span>"+oInp[2].value+"</span><span>"+oInp[3].value+"</span><span>"+oInp[4].value+"</span><span>删除</span><span>修改</span></li>";
+                            aTc.removeChild(obj);
+                            var aLi = aUl.querySelectorAll("li");
+                            for ( k = 0; k < aLi.length; k++) {
+                                if (k%2){
+                                    aLi[k].style.background = "#81FCFF";
+                                }else {
+                                    aLi[k].style.background = "";
+                                }
+                            }
+                        }else {
+                            alert("内容不能为空");
+                        }
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
