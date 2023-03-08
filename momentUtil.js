@@ -16,7 +16,10 @@ export const momentUtil = date => {
         return dateObject.getDate()
     }
     dateObject.daysInMonth = function () {
-        return dateObject.getDate()
+                const y = dateObject.year();
+                const m = dateObject.month(); // 0-11
+                const maxD = new Date(y, m + 1, 0).getDate()
+        return maxD
     }
     dateObject.add = function (number = 1, type = 'D') {
         const translateType = {
